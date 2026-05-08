@@ -36,7 +36,7 @@ const CONFIG = {
   },
 
   wedding: {
-    date: "2026-09-10",
+    date: "2026-09-19",
     time: "12:00",
     venue: "오하하우스웨딩",
     address: "경기도 안성시 서운면 신능길 83-15",
