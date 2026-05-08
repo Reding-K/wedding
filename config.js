@@ -14,14 +14,14 @@
 
 const CONFIG = {
   // ── 1. 초대장 열기 ──
-  useCurtain: true,  // 초대장 열기 화면 사용 여부 (true: 사용, false: 바로 본문 표시)
+  useCurtain: false,  // 초대장 열기 화면 사용 여부 (true: 사용, false: 바로 본문 표시)
 
   // ── 2. 메인 (히어로) ──
   groom: {
     name: "김홍중",
     nameEn: "KIM HONGJOONG ",
-    father: "아버지",
-    mother: "어머니",
+    father: "김용주",
+    mother: "윤양주",
     fatherDeceased: false,
     motherDeceased: false
   },
@@ -29,8 +29,8 @@ const CONFIG = {
   bride: {
     name: "김혜원",
     nameEn: "KIM HYEWON ",
-    father: "아버지",
-    mother: "어머니",
+    father: "김진형",
+    mother: "하은미",
     fatherDeceased: false,
     motherDeceased: false
   },
@@ -65,13 +65,13 @@ const CONFIG = {
   accounts: {
     groom: [
       { role: "신랑", name: "김홍중", bank: "농협", number: "344-12-052104" },
-      { role: "아버지", name: "홍판서", bank: "신한은행", number: "000-000-000000" },
-      { role: "어머니", name: "김부인", bank: "우리은행", number: "000-000-000000" }
+      { role: "아버지", name: "김용주", bank: "전북은행", number: "033-37-0016814" },
+      { role: "어머니", name: "윤양주", bank: "농협", number: "553-12-080903" }
     ],
     bride: [
       { role: "신부", name: "김혜원", bank: "하나은행", number: "000-000-000000" },
-      { role: "아버지", name: "김사장", bank: "기업은행", number: "000-000-000000" },
-      { role: "어머니", name: "이부인", bank: "농협은행", number: "000-000-000000" }
+      { role: "아버지", name: "김진형", bank: "기업은행", number: "000-000-000000" },
+      { role: "어머니", name: "하은미", bank: "농협은행", number: "000-000-000000" }
     ]
   },
 
