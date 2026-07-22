@@ -914,7 +914,7 @@ a {
    Gallery Section
    ═══════════════════════════════════════════ */
 .gallery {
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-bg);
 }
 
 .gallery__grid {
@@ -947,7 +947,7 @@ a {
    Location Section
    ═══════════════════════════════════════════ */
 .location {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt);
 }
 
 .location__info {
@@ -1009,7 +1009,7 @@ a {
    Account Section (축의금)
    ═══════════════════════════════════════════ */
 .account {
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-bg);
 }
 
 .account__desc {
