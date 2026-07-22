@@ -1406,3 +1406,37 @@ a {
     display: none !important;
   }
 }
+.event-info{
+  margin: 0 auto var(--spacing-lg);
+  max-width: 520px;
+  text-align: center;
+}
+
+.event-info__line{
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(154, 123, 170, 0.45),
+    transparent
+  );
+  margin: 0.9rem 0;
+}
+
+.event-info__datetime{
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+.event-info__venue{
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
