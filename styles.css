@@ -641,10 +641,9 @@ a {
   font-size: 1.875rem;
   font-weight: 700;
   letter-spacing: 8px;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-md);
   line-height: 1.4;
   color: var(--color-text);
-  margin-top: 40px;
 }
 
 .hero__divider {
