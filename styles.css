@@ -621,7 +621,7 @@ a {
   z-index: 2;
   text-align: center;
   color: var(--color-text);
-  padding: 0 var(--spacing-md) var(--spacing-lg);
+  padding: 0 var(--spacing-md) calc(0.5rem + var(--safe-bottom));
   width: 100%;
 }
 
@@ -641,7 +641,7 @@ a {
   font-size: 1.875rem;
   font-weight: 700;
   letter-spacing: 8px;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0.5rem;
   line-height: 1.4;
   color: var(--color-text);
 }
@@ -649,7 +649,7 @@ a {
 .hero__divider {
   width: 50px;
   height: 2px;
-  margin: 0 auto var(--spacing-md);
+  margin: 0 auto 0.5rem;
   background: linear-gradient(
     to right,
     transparent,
@@ -662,6 +662,7 @@ a {
 
 .hero__date,
 .hero__venue {
+   margin-top: 0;
   font-size: 0.8125rem;
   font-weight: 400;
   letter-spacing: 2px;
