@@ -623,11 +623,12 @@ a {
   color: var(--color-text);
   padding: 0 var(--spacing-md) calc(0.5rem + var(--safe-bottom));
   width: 100%;
+   transform:translateY(40px);
 }
 
 .hero__label {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
   letter-spacing: 6px;
   text-transform: uppercase;
@@ -641,7 +642,7 @@ a {
   font-size: 1.875rem;
   font-weight: 700;
   letter-spacing: 8px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   line-height: 1.4;
   color: var(--color-text);
 }
@@ -914,7 +915,7 @@ a {
    Gallery Section
    ═══════════════════════════════════════════ */
 .gallery {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt);
 }
 
 .gallery__grid {
@@ -969,14 +970,14 @@ a {
 }
 
 .location__address {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-text-muted);
   line-height: 1.6;
 }
 
 .location__tel {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-text-muted);
   margin-top: 0.25rem;
