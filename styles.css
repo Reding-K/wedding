@@ -783,6 +783,7 @@ a {
    Calendar Section
    ═══════════════════════════════════════════ */
 .calendar-section {
+  display: none;
   background-color: var(--color-bg-alt);
 }
 
