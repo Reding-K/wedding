@@ -645,6 +645,7 @@ a {
   margin-top: 20px;
   line-height: 1.4;
   color: var(--color-text);
+  transform: translateY(10px); 
 }
 
 .hero__divider {
