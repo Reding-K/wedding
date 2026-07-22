@@ -873,6 +873,7 @@ a {
    Story Section
    ═══════════════════════════════════════════ */
 .story {
+  display: none;
   background-color: var(--color-bg);
 }
 
