@@ -684,7 +684,7 @@ a {
   padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + var(--safe-bottom));
   text-align: center;
   color: var(--color-text);
-      transform:translateY(40px);
+      transform:translateY(60px);
 }
 
 .countdown__label {
