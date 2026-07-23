@@ -624,7 +624,7 @@ a {
   color: var(--color-text);
   padding: 0 var(--spacing-md) calc(0.5rem + var(--safe-bottom));
   width: 100%;
-   transform:translateY(40px);
+   transform:translateY(60px);
 }
 
 .hero__label {
@@ -684,6 +684,7 @@ a {
   padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + var(--safe-bottom));
   text-align: center;
   color: var(--color-text);
+      transform:translateY(40px);
 }
 
 .countdown__label {
