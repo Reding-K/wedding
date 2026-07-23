@@ -694,7 +694,7 @@ a {
   opacity: 0.8;
   margin-bottom: 0.1rem;
   color: var(--color-accent-dark);
-   transform:translateY(60px);
+   transform:translateY(80px);
 }
 
 .countdown__timer {
