@@ -595,6 +595,7 @@ a {
 }
 
 .hero__overlay {
+   display: none;
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -618,6 +619,7 @@ a {
 }
 
 .hero__content {
+   display: none;
   position: relative;
   z-index: 2;
   text-align: center;
@@ -679,6 +681,7 @@ a {
 
 /* ─── Countdown ─── */
 .countdown {
+   display: none;
   position: relative;
   z-index: 2;
   padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + var(--safe-bottom));
