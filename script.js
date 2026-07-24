@@ -87,7 +87,7 @@
     };
     setMeta('property', 'og:title', m.title);
     setMeta('property', 'og:description', m.description);
-    setMeta('property', 'og:image', 'images/og/1.jpg');
+    setMeta('property', 'og:image', 'CONFIG.images.og');
     setMeta('name', 'description', m.description);
   }
 
@@ -96,52 +96,55 @@
      ═══════════════════════════════════════════ */
 
   function initCurtain() {
-    const curtain = $('#curtain');
-    const btn = $('#curtainBtn');
-    const namesEl = $('#curtainNames');
+  const curtain = $('#curtain');
+  const btn = $('#curtainBtn');
+  const namesEl = $('#curtainNames');
 
-    if (CONFIG.useCurtain === false) {
-      curtain.style.display = 'none';
+  if (CONFIG.useCurtain === false) {
+    curtain.style.display = 'none';
+    initSparkles();
+    document.body.classList.remove('no-scroll');
+    return;
+  }
+
+  namesEl.textContent = `${CONFIG.groom.name}  &  ${CONFIG.bride.name}`;
+  document.body.classList.add('no-scroll');
+
+  btn.addEventListener('click', async () => {
+    curtain.classList.add('is-open');
+    document.body.classList.remove('no-scroll');
+
+    setTimeout(() => {
+      curtain.classList.add('is-hidden');
       initSparkles();
-      return;
-    }
-
-    namesEl.textContent = `${CONFIG.groom.name}  &  ${CONFIG.bride.name}`;
-
-    btn.addEventListener('click', async () => {
-      curtain.classList.add('is-open');
-      document.body.classList.remove('no-scroll');
-      setTimeout(() => {
-        curtain.classList.add('is-hidden');
-        initSparkles();
-      }, 1400);
+    }, 1400);
 
     const bgm = document.getElementById('bgm');
     const toggle = document.getElementById('bgmToggle');
     if (!bgm) return;
-    
-try {
-    bgm.volume = 0.35;
-    bgm.muted = false;
-    await bgm.play();
+
+    try {
+      bgm.volume = 0.35;
+      bgm.muted = false;
+      await bgm.play();
 
       if (toggle) {
-          toggle.classList.add('is-visible');
+        toggle.classList.add('is-visible');
         toggle.textContent = '🔊';
         toggle.setAttribute('aria-pressed', 'true');
-        }
-    }catch (e) {
+      }
+    } catch (e) {
       console.log('BGM play blocked:', e);
     }
   });
+}
 
-    document.body.classList.add('no-scroll');
-  }
 function initBgmToggle() {
   const bgm = document.getElementById('bgm');
   const toggle = document.getElementById('bgmToggle');
   if (!bgm || !toggle) return;
-toggle.classList.remove('is-visible');
+
+  toggle.classList.remove('is-visible');
   toggle.textContent = '🔇';
   toggle.setAttribute('aria-pressed', 'false');
 
@@ -157,15 +160,17 @@ toggle.classList.remove('is-visible');
       }
 
       toggle.textContent = bgm.paused ? '🔇' : '🔊';
-       toggle.setAttribute('aria-pressed', String(!bgm.paused));
+      toggle.setAttribute('aria-pressed', String(!bgm.paused));
     } catch (e) {
       console.log('BGM control blocked:', e);
     }
   });
+
   bgm.addEventListener('play', () => {
     toggle.textContent = '🔊';
     toggle.setAttribute('aria-pressed', 'true');
   });
+
   bgm.addEventListener('pause', () => {
     toggle.textContent = '🔇';
     toggle.setAttribute('aria-pressed', 'false');
