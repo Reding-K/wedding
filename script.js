@@ -138,7 +138,7 @@
 
     namesEl.textContent = `${CONFIG.groom.name}  &  ${CONFIG.bride.name}`;
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       curtain.classList.add('is-open');
       document.body.classList.remove('no-scroll');
       setTimeout(() => {
@@ -146,6 +146,18 @@
         initSparkles();
       }, 1400);
     });
+    const bgm = document.gentElementById('bgm');
+    if(!bgm) return;
+
+    try {
+      bgm.volume = 0.35;
+      if (bgm.paused) {
+        await bgm.play();
+      }
+    }catch (e) {
+      console.log('BGM play blocked:', e);
+    }
+  });
 
     document.body.classList.add('no-scroll');
   }
