@@ -1453,6 +1453,7 @@ a {
   color: var(--color-text-light);
   line-height: 1.8;
 }
+
 .bgm-toggle{
   position: fixed;
   top: 14px;
@@ -1466,7 +1467,7 @@ a {
   background: rgba(0,0,0,0.35);
   color: #fff;
 
-  display: flex;
+  display: none;              
   align-items: center;
   justify-content: center;
 
@@ -1478,12 +1479,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.bgm-toggle:active{
-  transform: scale(0.98);
-   .bgm-toggle{
-  display: none;
-   .bgm-toggle.is-visible{
-  display: flex;
+.bgm-toggle.is-visible{
+  display: flex;            
 }
 
+.bgm-toggle:active{
+  transform: scale(0.98);
 }
