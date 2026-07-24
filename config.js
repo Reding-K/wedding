@@ -16,7 +16,7 @@ const CONFIG = {
     images: {
     hero: 'images/hero/1.jpg',
     location: 'images/location/1.jpg',
-    og: 'images/og/1.jpg',
+    og: 'images/og/3.jpg',
 
     gallery: Array.from({ length: 18 }, (_, i) => `images/gallery/${i + 1}.jpg`)
   }
