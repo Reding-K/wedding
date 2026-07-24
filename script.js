@@ -145,21 +145,21 @@
         curtain.classList.add('is-hidden');
         initSparkles();
       }, 1400);
-    });
+
     const bgm = document.getElementById('bgm');
     const toggle = document.getElementById('bgmToggle');
     if (!bgm) return;
     
-    try {
-      bgm.volume = 0.35;
-      bgm.muted = false;
-      
-      if (bgm.paused) {
-        await bgm.play();
-      }
+try {
+    bgm.volume = 0.35;
+    bgm.muted = false;
+    await bgm.play();
+
       if (toggle) {
-        toggle.textContent = bgm.paused ? '▶️' : '⏸';
-      }
+          toggle.classList.add('is-visible');
+        toggle.textContent = '🔊';
+        toggle.setAttribute('aria-pressed', 'true');
+        }
     }catch (e) {
       console.log('BGM play blocked:', e);
     }
@@ -171,7 +171,7 @@ function initBgmToggle() {
   const bgm = document.getElementById('bgm');
   const toggle = document.getElementById('bgmToggle');
   if (!bgm || !toggle) return;
-toggle.textContent = bgm.paused ? '▶️' : '⏸';
+toggle.textContent = bgm.paused ? '🔊' : '🔇';
 
   toggle.addEventListener('click', async () => {
     try {
