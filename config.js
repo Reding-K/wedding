@@ -19,8 +19,8 @@ const CONFIG = {
     og: 'images/og/3.jpg',
 
     gallery: Array.from({ length: 18 }, (_, i) => `images/gallery/${i + 1}.jpg`)
-  }
-};
+  },
+
   // ── 1. 초대장 열기 ──
   useCurtain: true,  // 초대장 열기 화면 사용 여부 (true: 사용, false: 바로 본문 표시)
 
