@@ -36,36 +36,6 @@
      Image Auto-Detection
      ═══════════════════════════════════════════ */
 
-  function loadImagesFromFolder(folder, maxAttempts = 50) {
-    return new Promise(resolve => {
-        const images = [];
-        let current = 1;
-        let consecutiveFails = 0;
-
-        function tryNext() {
-            if (current > maxAttempts || consecutiveFails >= 3) {
-                resolve(images);
-                return;
-            }
-            const img = new Image();
-            const path = `images/${folder}/${current}.jpg`;
-            img.onload = function() {
-                images.push(path);
-                consecutiveFails = 0;
-                current++;
-                tryNext();
-            };
-            img.onerror = function() {
-                consecutiveFails++;
-                current++;
-                tryNext();
-            };
-            img.src = path;
-        }
-
-        tryNext();
-    });
-  }
 
   /* ═══════════════════════════════════════════
      Toast
@@ -319,11 +289,11 @@ toggle.classList.remove('is-visible');
      ═══════════════════════════════════════════ */
 
   function initHero() {
-    $('#heroPhoto').src = 'images/hero/1.jpg';
-    $('#heroNames').textContent = `${CONFIG.groom.name}  ·  ${CONFIG.bride.name}`;
-    $('#heroDate').textContent = formatDate(CONFIG.wedding.date, CONFIG.wedding.time);
-    $('#heroVenue').textContent = CONFIG.wedding.venue;
-  }
+  $('#heroPhoto').src = CONFIG.images.hero;
+  $('#heroNames').textContent = `${CONFIG.groom.name}  ·  ${CONFIG.bride.name}`;
+  $('#heroDate').textContent = formatDate(CONFIG.wedding.date, CONFIG.wedding.time);
+  $('#heroVenue').textContent = CONFIG.wedding.venue;
+}
 
   /* ═══════════════════════════════════════════
      Countdown
@@ -625,20 +595,21 @@ toggle.classList.remove('is-visible');
      ═══════════════════════════════════════════ */
 
   function initLocation() {
-    const w = CONFIG.wedding;
-    const ml = CONFIG.mapLinks;
-    $('#locationVenue').textContent = w.venue;
-    $('#locationHall').textContent = w.hall;
-    $('#locationAddress').textContent = w.address;
-    $('#locationTel').textContent = w.tel ? `Tel. ${w.tel}` : '';
-    $('#locationMapImg').src = 'images/location/1.jpg';
-    $('#kakaoMapBtn').href = ml.kakao || '#';
-    $('#naverMapBtn').href = ml.naver || '#';
+      const w = CONFIG.wedding;
+  const ml = CONFIG.mapLinks;
+  $('#locationVenue').textContent = w.venue;
+  $('#locationHall').textContent = w.hall;
+  $('#locationAddress').textContent = w.address;
+  $('#locationTel').textContent = w.tel ? `Tel. ${w.tel}` : '';
+  $('#locationMapImg').src = CONFIG.images.location;
 
-    $('#copyAddressBtn').addEventListener('click', () => {
-      copyToClipboard(w.address, '주소가 복사되었습니다');
-    });
-  }
+  $('#kakaoMapBtn').href = ml.kakao || '#';
+  $('#naverMapBtn').href = ml.naver || '#';
+
+  $('#copyAddressBtn').addEventListener('click', () => {
+    copyToClipboard(w.address, '주소가 복사되었습니다');
+  });
+}
 
   /* ═══════════════════════════════════════════
      Account Section (축의금)
@@ -787,13 +758,8 @@ toggle.classList.remove('is-visible');
     $('#storyTitle').textContent = CONFIG.story.title;
     $('#storyContent').textContent = CONFIG.story.content;
 
-    const [storyImages, galleryImages] = await Promise.all([
-      loadImagesFromFolder('story'),
-      loadImagesFromFolder('gallery')
-    ]);
-
-    initStory(storyImages);
-    initGallery(galleryImages);
+const galleryImages = CONFIG.images.gallery || [];
+initGallery(galleryImages);
   }
 
   if (document.readyState === 'loading') {
