@@ -146,13 +146,19 @@
         initSparkles();
       }, 1400);
     });
-    const bgm = document.gentElementById('bgm');
-    if(!bgm) return;
-
+    const bgm = document.getElementById('bgm');
+    const toggle = document.getElementById('bgmToggle');
+    if (!bgm) return;
+    
     try {
       bgm.volume = 0.35;
+      bgm.muted = false;
+      
       if (bgm.paused) {
         await bgm.play();
+      }
+      if (toggle) {
+        toggle.textContent = bgm.paused ? '▶️' : '⏸';
       }
     }catch (e) {
       console.log('BGM play blocked:', e);
@@ -161,7 +167,31 @@
 
     document.body.classList.add('no-scroll');
   }
+function initBgmToggle() {
+  const bgm = document.getElementById('bgm');
+  const toggle = document.getElementById('bgmToggle');
+  if (!bgm || !toggle) return;
+toggle.textContent = bgm.paused ? '▶️' : '⏸';
 
+  toggle.addEventListener('click', async () => {
+    try {
+      bgm.volume = 0.35;
+
+      if (bgm.paused) {
+        bgm.muted = false;
+        await bgm.play();
+      } else {
+        bgm.pause();
+      }
+
+      toggle.textContent = bgm.paused ? '▶️' : '⏸';
+    } catch (e) {
+      console.log('BGM control blocked:', e);
+    }
+  });
+  bgm.addEventListener('play', () => toggle.textContent = '⏸');
+  bgm.addEventListener('pause', () => toggle.textContent = '▶️');
+}
   /* ═══════════════════════════════════════════
      Falling Pastel Confetti / Sparkles
      ═══════════════════════════════════════════ */
@@ -730,6 +760,7 @@
 
   async function init() {
     setMetaTags();
+    initBgmToggle();
     initCurtain();
     initHero();
     initCountdown();
