@@ -171,7 +171,9 @@ function initBgmToggle() {
   const bgm = document.getElementById('bgm');
   const toggle = document.getElementById('bgmToggle');
   if (!bgm || !toggle) return;
-toggle.textContent = bgm.paused ? '🔊' : '🔇';
+toggle.classList.remove('is-visible');
+  toggle.textContent = '🔇';
+  toggle.setAttribute('aria-pressed', 'false');
 
   toggle.addEventListener('click', async () => {
     try {
@@ -184,13 +186,20 @@ toggle.textContent = bgm.paused ? '🔊' : '🔇';
         bgm.pause();
       }
 
-      toggle.textContent = bgm.paused ? '▶️' : '⏸';
+      toggle.textContent = bgm.paused ? '🔇' : '🔊';
+       toggle.setAttribute('aria-pressed', String(!bgm.paused));
     } catch (e) {
       console.log('BGM control blocked:', e);
     }
   });
-  bgm.addEventListener('play', () => toggle.textContent = '⏸');
-  bgm.addEventListener('pause', () => toggle.textContent = '▶️');
+  bgm.addEventListener('play', () => {
+    toggle.textContent = '🔊';
+    toggle.setAttribute('aria-pressed', 'true');
+  });
+  bgm.addEventListener('pause', () => {
+    toggle.textContent = '🔇';
+    toggle.setAttribute('aria-pressed', 'false');
+  });
 }
   /* ═══════════════════════════════════════════
      Falling Pastel Confetti / Sparkles
