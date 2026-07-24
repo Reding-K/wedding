@@ -1453,3 +1453,31 @@ a {
   color: var(--color-text-light);
   line-height: 1.8;
 }
+.bgm-toggle{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 9999;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bgm-toggle:active{
+  transform: scale(0.98);
+}
