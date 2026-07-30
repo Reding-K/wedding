@@ -12,7 +12,14 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
   function formatDate(dateStr, timeStr) {
     const d = new Date(`${dateStr}T${timeStr}:00`);
     const days = ['일', '월', '화', '수', '목', '금', '토'];
