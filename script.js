@@ -12,47 +12,7 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-// ── One-line auto-fit (nowrap + shrink) ──
-function fitTextToOneLine(el, minPx = 10) {
-  if (!el) return;
 
-  // 레이아웃 확정 전이면 재시도
-  if (el.clientWidth === 0) {
-    requestAnimationFrame(() => fitTextToOneLine(el, minPx));
-    return;
-  }
-
-  el.style.whiteSpace = 'nowrap';
-
-  // 글자 간격 때문에 길어지는 경우가 많아서, 줄이면서 letter-spacing도 같이 줄임
-  const baseLetter = parseFloat(getComputedStyle(el).letterSpacing) || 0;
-
-  let size = parseFloat(getComputedStyle(el).fontSize);
-  let letter = baseLetter;
-
-  // 최대 200번까지만 시도(무한루프 방지)
-  for (let i = 0; i < 200; i++) {
-    if (el.scrollWidth <= el.clientWidth) break;
-
-    if (size > minPx) {
-      size -= 1;                 // 0.5px 대신 1px씩 더 과감하게
-      el.style.fontSize = size + 'px';
-    } else if (letter > 0) {
-      letter -= 0.2;             // 폰트가 더 못 줄면 자간을 줄여서라도 맞춤
-      el.style.letterSpacing = letter + 'px';
-    } else {
-      break;
-    }
-  }
-}
-
-function applyFit(minPx = 10) {
-  document.querySelectorAll('.no-wrap-fit').forEach(el => {
-    el.style.fontSize = '';
-    el.style.letterSpacing = '';
-    fitTextToOneLine(el, minPx);
-  });
-}
   function formatDate(dateStr, timeStr) {
     const d = new Date(`${dateStr}T${timeStr}:00`);
     const days = ['일', '월', '화', '수', '목', '금', '토'];
@@ -795,7 +755,6 @@ function initBgmToggle() {
     initLocation();
     initAccounts();
     initFooter();
-    applyFit(12);
     initScrollAnimations();
 
     $('#storyTitle').textContent = CONFIG.story.title;
