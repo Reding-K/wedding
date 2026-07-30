@@ -621,21 +621,29 @@ function initBgmToggle() {
     accounts.forEach((acc) => {
       const item = document.createElement('div');
       item.className = 'account-item';
+      const displayName = `${acc.role} ${acc.name || ''}`;
       item.innerHTML = `
-        <div class="account-item__info">
-          <div class="account-item__role">${acc.role}</div>
-          <div class="account-item__detail">
-            <span class="account-item__name">${acc.name || ''}</span>
+      <div class="account-item__info">
+        <div class="account-item__detail">
+          <span class="account-item__name">
+            ${displayName}
+          </span>
+          <div class="account-item__bank">
             ${acc.bank} ${acc.number}
           </div>
         </div>
-        <button class="account-item__copy" data-account="${acc.bank} ${acc.number} ${acc.name || ''}">
-          복사
-        </button>
-      `;
-      container.appendChild(item);
-    });
-  }
+      </div>
+      <button
+        class="account-item__copy"
+        data-account="${acc.bank} ${acc.number} ${acc.name || ''}"
+      >
+        복사
+      </button>
+    `;
+
+    container.appendChild(item);
+  });
+}
 
   function initAccordion(triggerId, panelId) {
     const trigger = $(`#${triggerId}`);
