@@ -768,28 +768,21 @@ a {
   line-height: 2.2;
   color: var(--color-text);
   letter-spacing: 0 !important;
+  text-align: center; 
 }
 
 .greeting__parents .parent-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0 !important;
+  display: block;
+  white-space: nowrap;
 }
 
-.greeting__parents .parent-dot {
-  color: var(--color-accent);
-  font-size: 0.4rem;
-}
-
-.greeting__parents .child-name {
+   
+.greeting__parents .parent-row .child-name{
   font-weight: 700;
 }
 
-.greeting__parents .deceased::before {
-  content: "故 ";
-  font-size: 0.75em;
-  opacity: 0.6;
+.greeting__parents .parent-row span{
+  display: inline;
 }
 
 /* ═══════════════════════════════════════════
