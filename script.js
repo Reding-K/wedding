@@ -354,6 +354,8 @@ function initBgmToggle() {
     function parentLine(father, mother, fatherDeceased, motherDeceased) {
       const fd = fatherDeceased ? ' deceased' : '';
       const md = motherDeceased ? ' deceased' : '';
+      const f = String(father ?? '').trim();
+      const m = String(mother ?? '').trim();
       return `<span class="${fd}">${father}</span> · <span class="${md}">${mother}</span>`;
     }
 
