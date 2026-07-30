@@ -347,7 +347,23 @@ function initBgmToggle() {
   function initGreeting() {
     $('#greetingTitle').textContent = CONFIG.greeting.title;
     $('#greetingContent').textContent = CONFIG.greeting.content;
+const raw = CONFIG.greeting.content;
 
+  // 1) 전체 텍스트를 안전하게 escape
+  let html = escapeHtml(raw);
+
+  // 2) 줄바꿈을 <br>로 변환
+  html = html.replace(/\n/g, '<br>');
+
+  // 3) 특정 문구만 강조 span으로 치환 (정확히 일치하는 문장)
+  html = html.replace(
+    '화환은 정중히 사양합니다.',
+    '<span class="no-wreath">화환은 정중히 사양합니다.</span>'
+  );
+
+  // 4) 출력
+  $('#greetingContent').innerHTML = html;
+    
     const g = CONFIG.groom;
     const b = CONFIG.bride;
 
