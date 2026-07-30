@@ -1479,8 +1479,3 @@ a {
 .bgm-toggle:active{
   transform: scale(0.98);
 }
-
-.no-wrap-fit{
-  white-space: nowrap;
-  display: block;
-}
