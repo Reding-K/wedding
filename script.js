@@ -16,7 +16,10 @@
 function fitTextToOneLine(el, minPx = 12) {
   if (!el) return;
 
-  if (el.clientWidth === 0) return;
+  if (el.clientWidth === 0) {
+    requestAnimationFrame(() => fitTextToOneLine(el, minPx));
+    return;
+  }
 
   el.style.whiteSpace = 'nowrap';
 
