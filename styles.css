@@ -1493,10 +1493,6 @@ a {
 
 .no-wreath{
   font-weight: 800;
-  color: #B55A5A;                 /* 정중한 로즈 톤(원하면 변경) */
-  background: rgba(181,90,90,0.10);
-  padding: 0.12rem 0.4rem;
-  border-radius: 0.55rem;
-  display: inline-block;
+  color: #A06AA8;
 }
 
