@@ -572,7 +572,7 @@ a {
 .section__title {
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  font-weight: 400;
+  font-weight: 800;
   letter-spacing: 3px;
   margin-bottom: var(--spacing-lg);
   color: var(--color-text);
