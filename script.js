@@ -12,7 +12,28 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+// ── One-line auto-fit (nowrap + shrink) ──
+function fitTextToOneLine(el, minPx = 12) {
+  if (!el) return;
 
+  if (el.clientWidth === 0) return;
+
+  el.style.whiteSpace = 'nowrap';
+
+  let size = parseFloat(getComputedStyle(el).fontSize);
+
+  while (el.scrollWidth > el.clientWidth && size > minPx) {
+    size -= 0.5;
+    el.style.fontSize = size + 'px';
+  }
+}
+
+function applyFit(minPx = 12) {
+  document.querySelectorAll('.no-wrap-fit').forEach(el => {
+    el.style.fontSize = '';      // 리셋 후 다시 계산
+    fitTextToOneLine(el, minPx);
+  });
+}
   function formatDate(dateStr, timeStr) {
     const d = new Date(`${dateStr}T${timeStr}:00`);
     const days = ['일', '월', '화', '수', '목', '금', '토'];
@@ -754,6 +775,7 @@ function initBgmToggle() {
     initLocation();
     initAccounts();
     initFooter();
+    applyFit(12);
     initScrollAnimations();
 
     $('#storyTitle').textContent = CONFIG.story.title;
