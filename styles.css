@@ -1493,6 +1493,6 @@ a {
 
 .no-wreath{
   font-weight: 800;
-  color: #A06AA8;
+  color: var(--color-accent-dark);
 }
 
