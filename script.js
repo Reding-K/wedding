@@ -367,7 +367,6 @@ function initBgmToggle() {
     `;
 
     $('#greetingParents').innerHTML = parentsHTML;
-    applyFit(10);
   }
 
   /* ═══════════════════════════════════════════
