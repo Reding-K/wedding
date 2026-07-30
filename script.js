@@ -352,15 +352,22 @@ function initBgmToggle() {
     const b = CONFIG.bride;
 
     function parentLine(father, mother, fatherDeceased, motherDeceased) {
-const fd = fatherDeceased ? ' deceased' : '';
-const md = motherDeceased ? ' deceased' : '';
-return <span class="${fd}">${father}&lt;/span&gt; · &lt;span class="${md}">${mother}&lt;/span>;
-}
+      const fd = fatherDeceased ? ' deceased' : '';
+      const md = motherDeceased ? ' deceased' : '';
+      return `<span class="${fd}">${father}</span> · <span class="${md}">${mother}</span>`;
+    }
 
-const parentsHTML = &lt;div class="parent-row"&gt; ${parentLine(g.father, g.mother, g.fatherDeceased, g.motherDeceased)}의 아들 <span class="child-name">${g.name}&lt;/span&gt; &lt;/div&gt; &lt;div class="parent-row"&gt; ${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의 딸 <span class="child-name">${b.name}&lt;/span&gt; &lt;/div&gt;;
+    const parentsHTML = `
+      <div class="parent-row">
+        ${parentLine(g.father, g.mother, g.fatherDeceased, g.motherDeceased)}의 아들 <span class="child-name">${g.name}</span>
+      </div>
+      <div class="parent-row">
+        ${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의 딸 <span class="child-name">${b.name}</span>
+      </div>
+    `;
 
-$('#greetingParents').innerHTML = parentsHTML;
-}
+    $('#greetingParents').innerHTML = parentsHTML;
+  }
 
   /* ═══════════════════════════════════════════
      Calendar Section
