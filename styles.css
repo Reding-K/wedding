@@ -767,14 +767,14 @@ a {
   font-weight: 400;
   line-height: 2.2;
   color: var(--color-text);
-  letter-spacing: 1px;
+  letter-spacing: 0 !important;
 }
 
 .greeting__parents .parent-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0 !important;
 }
 
 .greeting__parents .parent-dot {
