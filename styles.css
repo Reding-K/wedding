@@ -1119,6 +1119,11 @@ a {
   display: block;        /* "신랑 김홍중", "아버지 김용주"를 한 줄로 위에 */
   margin-bottom: 0.1rem;
 }
+.account-item__role-label {
+  color: var(--color-text-light);  /* 역할만 포인트 색 */
+  margin-right: 0.25rem;       /* 역할과 이름 사이 간격 */
+}
+
 .account-item__bank {
   display: block;
 }
