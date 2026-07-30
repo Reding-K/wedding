@@ -345,45 +345,37 @@ function initBgmToggle() {
      ═══════════════════════════════════════════ */
 
   function initGreeting() {
-    $('#greetingTitle').textContent = CONFIG.greeting.title;
-    $('#greetingContent').textContent = CONFIG.greeting.content;
-const raw = CONFIG.greeting.content;
+  $('#greetingTitle').textContent = CONFIG.greeting.title;
 
-  // 1) 전체 텍스트를 안전하게 escape
-  let html = escapeHtml(raw);
+  const raw = CONFIG.greeting.content;
 
-  // 2) 줄바꿈을 <br>로 변환
-  html = html.replace(/\n/g, '<br>');
+  let html = escapeHtml(raw).replace(/\n/g, '<br>');
 
-  // 3) 특정 문구만 강조 span으로 치환 (정확히 일치하는 문장)
   html = html.replace(
     '화환은 정중히 사양합니다.',
     '<span class="no-wreath">화환은 정중히 사양합니다.</span>'
   );
 
-  // 4) 출력
   $('#greetingContent').innerHTML = html;
-    
-    const g = CONFIG.groom;
-    const b = CONFIG.bride;
 
-    function parentLine(father, mother, fatherDeceased, motherDeceased) {
-      const fd = fatherDeceased ? ' deceased' : '';
-      const md = motherDeceased ? ' deceased' : '';
-      const f = String(father ?? '').trim();
-      const m = String(mother ?? '').trim();
-      return `<span class="${fd}">${father}</span> · <span class="${md}">${mother}</span>`;
-    }
+  const g = CONFIG.groom;
+  const b = CONFIG.bride;
 
-    const parentsHTML = `
-      <div class="parent-row">${parentLine(g.father, g.mother, g.fatherDeceased, g.motherDeceased)}의&nbsp;아들&nbsp; <span class="child-name">${g.name}</span>
-      </div>
-      <div class="parent-row">${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의&nbsp;&nbsp;딸&nbsp;&nbsp;&nbsp; <span class="child-name">${b.name}</span>
-      </div>
-    `;
-
-    $('#greetingParents').innerHTML = parentsHTML;
+  function parentLine(father, mother, fatherDeceased, motherDeceased) {
+    const fd = fatherDeceased ? 'deceased' : '';
+    const md = motherDeceased ? 'deceased' : '';
+    const f = String(father ?? '').trim();
+    const m = String(mother ?? '').trim();
+    return `<span class="${fd}">${f}</span> · <span class="${md}">${m}</span>`;
   }
+
+  const parentsHTML = `
+    <div class="parent-row">${parentLine(g.father, g.mother, g.fatherDeceased, g.motherDeceased)}의&nbsp;아들&nbsp; <span class="child-name">${g.name}</span></div>
+    <div class="parent-row">${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의&nbsp;&nbsp;딸&nbsp;&nbsp;&nbsp; <span class="child-name">${b.name}</span></div>
+  `;
+
+  $('#greetingParents').innerHTML = parentsHTML;
+}
 
   /* ═══════════════════════════════════════════
      Calendar Section
