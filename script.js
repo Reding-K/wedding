@@ -770,7 +770,23 @@ function initBgmToggle() {
 
 const galleryImages = CONFIG.images.gallery || [];
 initGallery(galleryImages);
+  const bgm = document.getElementById('bgm');
+  const toggle = document.getElementById('bgmToggle');
+
+  if (bgm) {
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (!bgm.paused) {
+          bgm.pause();
+        }
+        if (toggle) {
+          toggle.textContent = '🔇';
+          toggle.setAttribute('aria-pressed', 'false');
+        }
+      }
+    });
   }
+}
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
