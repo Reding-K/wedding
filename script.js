@@ -626,7 +626,8 @@ function initBgmToggle() {
       <div class="account-item__info">
         <div class="account-item__detail">
           <span class="account-item__name">
-            ${displayName}
+            <span class="account-item__role-label">${acc.role}</span>
+            ${acc.name || ''}
           </span>
           <div class="account-item__bank">
             ${acc.bank} ${acc.number}
