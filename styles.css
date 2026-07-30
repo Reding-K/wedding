@@ -1111,10 +1111,16 @@ a {
   font-weight: 400;
   color: var(--color-text);
   margin-top: 0.125rem;
+  line-height: 1.6;
 }
 
 .account-item__name {
   font-weight: 700;
+  display: block;        /* "신랑 김홍중", "아버지 김용주"를 한 줄로 위에 */
+  margin-bottom: 0.1rem;
+}
+.account-item__bank {
+  display: block;
 }
 
 .account-item__copy {
