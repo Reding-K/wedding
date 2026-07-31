@@ -378,7 +378,7 @@ function initBgmToggle() {
 
   const parentsHTML = `
     <div class="parent-row">${parentLine(g.father, g.mother, g.fatherDeceased, g.motherDeceased)}의&nbsp;아들&nbsp; <span class="child-name">${g.name}</span></div>
-    <div class="parent-row">${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의&nbsp;&nbsp;딸&nbsp;&nbsp;&nbsp; <span class="child-name">${b.name}</span></div>
+    <div class="parent-row">${parentLine(b.father, b.mother, b.fatherDeceased, b.motherDeceased)}의&nbsp;&nbsp;&nbsp;딸&nbsp;&nbsp;&nbsp; <span class="child-name">${b.name}</span></div>
   `;
 
   $('#greetingParents').innerHTML = parentsHTML;
